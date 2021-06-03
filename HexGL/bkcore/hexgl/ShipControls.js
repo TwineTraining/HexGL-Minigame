@@ -10,7 +10,7 @@ bkcore.hexgl = bkcore.hexgl || {};
 
 bkcore.hexgl.ShipControls = function(ctx)
 {
-	/*
+	
 	function getParameterByName(name, url = window.location.href) {
 		name = name.replace(/[\[\]]/g, '\\$&');
 		var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -19,7 +19,7 @@ bkcore.hexgl.ShipControls = function(ctx)
 		if (!results[2]) return '';
 		return decodeURIComponent(results[2].replace(/\+/g, ' '));
 	}
-	*/
+	
 	var self = this;
 	var domElement = ctx.document;
 
