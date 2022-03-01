@@ -218,19 +218,19 @@ bkcore.hexgl.Gameplay.prototype.update = function()
 		if (this.result == 1){
 			if(this.finishTime < 75000){
 				this.trophy = "Platinum Trophy";
-				this.finishedScore = 750;
+				this.finishedScore = 5;
 			} 
 			else if(this.finishTime < 90000){
 				this.trophy = "Gold Trophy";
-				this.finishedScore = 500;
+				this.finishedScore = 4;
 			}
 			else if(this.finishTime < 105000){
 				this.trophy = "Silver Trophy";
-				this.finishedScore = 250;
+				this.finishedScore = 3;
 			}
 			else if (this.finishTime < 150000) {
 				this.trophy = "Bronze Trophy";
-				this.finishedScore = 100;
+				this.finishedScore = 2;
 			}
 			else {
 				this.trophy = "Disqualified";
@@ -244,7 +244,7 @@ bkcore.hexgl.Gameplay.prototype.update = function()
 		var seconds = Math.round(((this.finishTime / 1000) % 60 + Number.EPSILON) * 1000) / 1000;
 		var minutes = Math.floor(this.finishTime / (1000*60)%60);
 		this.finishTimeFormatted = minutes+"'"+seconds;
-		var returnValue = this.finishTimeFormatted+"|"+this.trophy+"|"+this.finishedScore+"|"+this.result;
+		var returnValue = this.finishTimeFormatted+"|"+this.finishTime+"|"+this.trophy+"|"+this.finishedScore+"|"+this.result;
 		console.log(returnValue);
 		window.parent.document.dispatchEvent(new CustomEvent ('finishedGame', {detail : returnValue}));
 	}
