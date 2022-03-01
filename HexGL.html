@@ -131,7 +131,7 @@ State.active.variables[&quot;param&quot;] = queryString;
 &lt;&lt;include [[Decrypt URL]]&gt;&gt;
 &lt;&lt;set $shieldsPercent = Math.round(parseFloat($shields*100))&gt;&gt;
 
-&lt;&lt;if ($shieldsPercent is 0) or (not Util.isNumeric($shields))&gt;&gt;
+&lt;&lt;if ($shieldsPercent is 0) or (not Util.isNumeric($shields)) or ($shieldsPercent &gt; 500)&gt;&gt;
 This link is invalid, please go back to the original training and press &quot;Load Minigame&quot;. 
 &lt;&lt;else&gt;&gt;
 Your shields are running at $shieldsPercent% efficiency.
