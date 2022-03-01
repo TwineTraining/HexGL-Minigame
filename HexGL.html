@@ -129,8 +129,11 @@ State.active.variables[&quot;param&quot;] = queryString;
 &lt;&lt;/script&gt;&gt;
 
 &lt;&lt;include [[Decrypt URL]]&gt;&gt;
-
 &lt;&lt;set $shieldsPercent = Math.round(parseFloat($shields*100))&gt;&gt;
+
+&lt;&lt;if ($shieldsPercent is 0) or (not Util.isNumeric($shields))&gt;&gt;
+This link is invalid, please go back to the original training and press &quot;Load Minigame&quot;. 
+&lt;&lt;else&gt;&gt;
 Your shields are running at $shieldsPercent% efficiency.
 Shields are represented by the grey bar, and the smaller number below your current speed. Press &#39;esc&#39; whilst driving to reset the vehicle, and attempt another lap. If the game fails to load, please refresh the page.
 
@@ -142,6 +145,7 @@ Target Times:
 2&#39;00.000 : Silver Trophy
 2&#39;30.000 : Bronze Trophy
 
+&lt;&lt;/if&gt;&gt;
 
 
 </tw-passagedata><tw-passagedata pid="2" name="Finished HexGL" tags="" position="101,400" size="100,100">&lt;&lt;include [[getScore]]&gt;&gt;
