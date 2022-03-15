@@ -131,7 +131,7 @@ State.active.variables[&quot;param&quot;] = queryString;
 &lt;&lt;include [[Decrypt URL]]&gt;&gt;
 &lt;&lt;set $shieldsPercent = Math.round(parseFloat($shields*100))&gt;&gt;
 
-&lt;&lt;if ($shieldsPercent is 0) or (not Util.isNumeric($shields)) or ($shieldsPercent &gt; 500)&gt;&gt;
+&lt;&lt;if ($shieldsPercent is 0) or (not Util.isNumeric($shields)) or ($shieldsPercent &gt; 500) or ($shieldsPercent &lt; 0)&gt;&gt;
 This link is invalid, please go back to the original training and press &quot;Load Minigame&quot;. 
 &lt;&lt;else&gt;&gt;
 Your shields are running at $shieldsPercent% efficiency.
@@ -184,6 +184,7 @@ Target Times:
 &lt;&lt;set $trophyPoints = $minigameReturnArray[3]&gt;&gt;
 &lt;&lt;set $result = $minigameReturnArray[4]&gt;&gt;
 &lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Decrypt URL" tags="" position="681,286" size="100,100">&lt;&lt;script&gt;&gt;
+//if you see this and reverse engineer the shield count, shame on you!
 var caesarShift = function (str, amount) {
   // Wrap the amount
   if (amount &lt; 0) {
@@ -262,6 +263,7 @@ OTC: &lt;input readonly=&quot;true&quot; type=&quot;text&quot; id=&quot;OTCtext&
 &lt;input id=&quot;cb&quot; type=&quot;text&quot; hidden&gt;
 
 &lt;&lt;script&gt;&gt;
+//if you see this and reverse engineer a score, shame on you!
 var CreateOTC = function() {
   var caesarShift = function (str, amount) {
 	// Wrap the amount
@@ -339,12 +341,7 @@ var CreateOTC = function() {
   State.active.variables[&#39;encryptedString&#39;] = encryptedString;
   document.getElementById(&quot;OTCtext&quot;).value = encryptedString;
   copyToClipboard(encryptedString);
-  
-
-
-  
 };
-
 
 $(document).on(&#39;click&#39;, &#39;#OTC&#39;, CreateOTC);
 &lt;&lt;/script&gt;&gt;
