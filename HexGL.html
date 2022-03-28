@@ -131,6 +131,16 @@ State.active.variables[&quot;param&quot;] = queryString;
 &lt;&lt;include [[Decrypt URL]]&gt;&gt;
 &lt;&lt;set $shieldsPercent = Math.round(parseFloat($shields*100))&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
+
+
+
+&lt;&lt;script&gt;&gt;
+var returnValue = &quot;HI&quot;;
+const frame = document.getElementById(&#39;&#39;);
+window.parent.postMessage(returnValue, &quot;*&quot;);
+&lt;&lt;/script&gt;&gt;
+
+
 &lt;&lt;include [[createMinigame]]&gt;&gt;
 
 &lt;&lt;if ($shieldsPercent is 0) or (not Util.isNumeric($shields)) or ($shieldsPercent &gt; 500) or ($shieldsPercent &lt; 0)&gt;&gt;
