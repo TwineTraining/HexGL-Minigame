@@ -186,7 +186,12 @@ Target Times:
 &lt;&lt;set $trophy = $minigameReturnArray[2]&gt;&gt;
 &lt;&lt;set $trophyPoints = $minigameReturnArray[3]&gt;&gt;
 &lt;&lt;set $result = $minigameReturnArray[4]&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Decrypt URL" tags="" position="681,286" size="100,100">&lt;&lt;script&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
+
+&lt;&lt;script&gt;&gt;
+var returnValue = &quot;HI&quot;;
+window.parent.document.dispatchEvent(new CustomEvent (&#39;finishedGame2&#39;, {detail : returnValue}));
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Decrypt URL" tags="" position="681,286" size="100,100">&lt;&lt;script&gt;&gt;
 //if you see this and reverse engineer the shield count, shame on you!
 var caesarShift = function (str, amount) {
   // Wrap the amount

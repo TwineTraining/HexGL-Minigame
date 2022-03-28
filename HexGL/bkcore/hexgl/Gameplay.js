@@ -245,7 +245,6 @@ bkcore.hexgl.Gameplay.prototype.update = function()
 		var minutes = Math.floor(this.finishTime / (1000*60)%60);
 		this.finishTimeFormatted = minutes+"'"+seconds;
 		var returnValue = this.finishTimeFormatted+"|"+this.finishTime+"|"+this.trophy+"|"+this.finishedScore+"|"+this.result;
-		console.log(returnValue);
 		window.parent.document.dispatchEvent(new CustomEvent ('finishedGame', {detail : returnValue}));
 	}
 }
