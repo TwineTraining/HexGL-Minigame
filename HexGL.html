@@ -190,7 +190,8 @@ Target Times:
 
 &lt;&lt;script&gt;&gt;
 var returnValue = &quot;HI&quot;;
-window.parent.document.dispatchEvent(new CustomEvent (&#39;finishedGame2&#39;, {detail : returnValue}));
+const frame = document.getElementById(&#39;your-frame-id&#39;);
+frame.contentWindow.postMessage(returnValue, *);
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Decrypt URL" tags="" position="681,286" size="100,100">&lt;&lt;script&gt;&gt;
 //if you see this and reverse engineer the shield count, shame on you!
 var caesarShift = function (str, amount) {
