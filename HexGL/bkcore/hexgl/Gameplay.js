@@ -216,35 +216,30 @@ bkcore.hexgl.Gameplay.prototype.update = function()
 		this.active = false;
 		this.onFinish.call(this);
 		if (this.result == 1){
-			if(this.finishTime < 75000){
-				this.trophy = "Platinum Trophy";
-				this.finishedScore = 5;
+			if(this.finishTime < 60000){
+				this.finishedScore = 4;
 			} 
 			else if(this.finishTime < 90000){
-				this.trophy = "Gold Trophy";
-				this.finishedScore = 4;
-			}
-			else if(this.finishTime < 105000){
-				this.trophy = "Silver Trophy";
 				this.finishedScore = 3;
 			}
-			else if (this.finishTime < 150000) {
-				this.trophy = "Bronze Trophy";
+			else if(this.finishTime < 120000){
 				this.finishedScore = 2;
 			}
+			else if (this.finishTime < 150000) {
+				this.finishedScore = 1;
+			}
 			else {
-				this.trophy = "Disqualified";
 				this.finishedScore = 0;
 			}
 		}		
 		else {
-			this.trophy = "Disqualified";
 			this.finishedScore = 0;
 		}
 		var seconds = Math.round(((this.finishTime / 1000) % 60 + Number.EPSILON) * 1000) / 1000;
 		var minutes = Math.floor(this.finishTime / (1000*60)%60);
 		this.finishTimeFormatted = minutes+"'"+seconds;
-		var returnValue = this.finishTimeFormatted+"|"+this.finishTime+"|"+this.trophy+"|"+this.finishedScore+"|"+this.result;
+		console.log(window.maxShield);
+		var returnValue = this.finishTimeFormatted+"|"+this.finishTime+"|"+this.finishedScore+"|"+this.result+"|"+window.maxShield;
 		window.parent.document.dispatchEvent(new CustomEvent ('finishedGame', {detail : returnValue}));
 	}
 }
